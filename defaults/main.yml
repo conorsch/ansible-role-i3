@@ -12,3 +12,12 @@ i3_apt_packages_extra:
   - xcompmgr
   - xinit
   - xserver-xorg-core
+
+# Mod4 is the meta/Windows key.
+i3_mod_key: Mod4
+i3_floating_modifier: $mod
+i3_terminal: konsole
+i3_terminal_binding: $mod+Return
+i3_kill_window_binding: $mod+Shift+q
+# The docs really do call it dmenu, but rebind away.
+i3_dmenu_binding: $mod+d

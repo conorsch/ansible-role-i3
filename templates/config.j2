@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod {{ i3_mod_key }}
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -17,6 +17,7 @@ set $mod Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
+#
 font pango:Ubuntu Sans Mono 15
 
 # Disable all window titles, via: https://faq.i3wm.org/question/1238/is-it-possible-to-hide-window-title-for-all-windows/
@@ -24,21 +25,23 @@ for_window [class="^.*"] border pixel 1
 bindsym Control+Shift+1 [class="^.*"] border toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier {{ i3_floating_modifier }}
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym {{ i3_terminal_binding }} exec {{ i3_terminal }}
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym {{ i3_kill_window_binding }} kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym {{ i3_dmenu_binding }} exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+
+{{ i3_vim_like_movement_bindings }}
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
