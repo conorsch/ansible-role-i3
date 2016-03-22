@@ -1,0 +1,14 @@
+---
+# defaults file for i3
+i3_apt_packages:
+  - i3
+  - i3lock
+  - i3status
+
+i3_apt_packages_extra:
+  - dunst
+  - network-manager
+  - xautolock
+  - xcompmgr
+  - xinit
+  - xserver-xorg-core
