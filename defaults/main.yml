@@ -21,3 +21,18 @@ i3_terminal_binding: $mod+Return
 i3_kill_window_binding: $mod+Shift+q
 # The docs really do call it dmenu, but rebind away.
 i3_dmenu_binding: $mod+d
+
+i3_startup_processes:
+  - nitrogen --restore
+  - xcompmgr
+  - nm-applet
+  - setxkbmap -layout us -option caps:escape -option compose:ralt
+  - xbacklight -set 50
+  - redshift
+  - xautolock -time 15 -locker i3
+
+i3_login_processes:
+  - workspace: 1
+    exec: "{{ i3_terminal }}"
+  - workspace: 2
+    exec: firefox

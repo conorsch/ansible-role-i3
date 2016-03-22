@@ -159,27 +159,13 @@ bar {
         status_command i3status -c ~/.i3/i3status.conf
 }
 
-# restore nitrogen (desktop background) settings
-exec --no-startup-id nitrogen --restore
-# start xcompmgr (for terminal transparency, e.g. in Konsole)
-exec --no-startup-id xcompmgr
-# start nm-applet (NetworkManager) 
-exec --no-startup-id nm-applet
-# configure custom X keybindings
-exec --no-startup-id setxkbmap -layout us -option caps:escape -option compose:ralt
-# set brightness at half
-exec --no-startup-id xbacklight -set 50
-# enable redshift for color temperature adjustment
-exec --no-startup-id redshift
-# lock screen when idle
-exec --no-startup-id xautolock -time 15 -locker i3
-
 # make pop-up dialogs floating
 for_window [class="Toplevel"] floating enable
 
-# Start these things when I log in, on specific workspaces
-exec --no-startup-id i3-msg 'workspace 1; exec konsole'
-exec --no-startup-id i3-msg 'workspace 2; exec firefox -no-remote -p personal'
-#exec --no-startup-id i3-msg 'workspace 3; exec firefox -no-remote -p securedrop'
-#exec --no-startup-id i3-msg 'workspace 4; exec thunderbird'
+{% for p in i3_startup_processes %}
+exec --no-startup-id {{ p }}
+{% endfor %}
 
+{% for p in i3_login_processes %}
+exec --no-startup-id i3-msg 'workspace {{ p.workspace }}; exec {{ p.exec }}'
+{% endfor %}
