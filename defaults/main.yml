@@ -36,3 +36,6 @@ i3_login_processes:
     exec: "{{ i3_terminal }}"
   - workspace: 2
     exec: firefox
+
+i3_font: pango:Ubuntu Sans Mono
+i3_font_size: 15
