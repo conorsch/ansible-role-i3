@@ -1,0 +1,6 @@
+---
+- name: Install i3.
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ i3_apt_packages }}"

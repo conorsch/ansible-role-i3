@@ -2,21 +2,19 @@
 # defaults file for i3
 i3_apt_packages:
   - i3
-  - i3lock
-  - i3status
-
 
 # Override with a custom status file config. Use an absolute path.
 # Shell expansion of user home directory is OK, e.g. ~/.i3/i3status
 i3_custom_status: ''
 
-i3_apt_packages_extra:
-  - dunst
-  - network-manager
-  - xautolock
-  - xcompmgr
-  - xinit
-  - xserver-xorg-core
+i3_apt_packages_extra: []
+# e.g.:
+#  - dunst
+#  - network-manager
+#  - xautolock
+#  - xcompmgr
+#  - xinit
+#  - xserver-xorg-core
 
 # Mod4 is the meta/Windows key.
 i3_mod_key: Mod4
