@@ -7,10 +7,15 @@ galaxy_info:
     - name: Debian
       versions:
         - jessie
-        - stretch
+        # Ansible Galaxy doesn't understand stretch and sid,
+        # but at least stretch does indeed work.
+        # - stretch
+        # - sid
+    - name: Ubuntu
+      versions:
+        - vivid
   galaxy_tags:
     - workstation
     - system
     - graphical
-
 dependencies: []
