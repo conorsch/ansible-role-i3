@@ -1,11 +1,13 @@
 ---
 - name: Create i3 config directory.
+  become: no
   file:
     path: "{{ i3_config_directory }}"
     state: directory
     mode: "0750"
 
 - name: Copy i3 config template.
+  become: no
   template:
     dest: "{{ i3_config_directory }}/config"
     src: config.j2

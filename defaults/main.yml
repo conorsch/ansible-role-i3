@@ -16,9 +16,14 @@ i3_apt_packages_extra: []
 #  - xinit
 #  - xserver-xorg-core
 
+i3_fallback_user: "{{ lookup('env', 'USER') }}"
+i3_username: >-
+  {{ ansible_ssh_user|default(i3_fallback_user)
+  if ansible_ssh_user|default(i3_fallback_user) != 'root' else  i3_fallback_user }}
+
 # The i3 manpage states that ~/.config/i3/config has the highest
 # precedence, so let's write the config there.
-i3_config_directory: "{{ ansible_env.HOME }}/.config/i3"
+i3_config_directory: "~{{ i3_username }}/.config/i3"
 
 # Mod4 is the meta/Windows key.
 i3_mod_key: Mod4
